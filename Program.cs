@@ -8,26 +8,4 @@ class Program
   {
     new RemoteControl().ShowMenu();
   }
-
-  static public int? GetIntegerInput(string prompt)
-  {
-    int? choice = null;
-
-    Console.Write(prompt);
-    string? input = Console.ReadLine();
-
-    if (input != null)
-    {
-      try
-      {
-        choice = int.Parse(input);
-      }
-      catch (FormatException)
-      {
-        Console.WriteLine(">>> PLEASE PROVIDE NUMBER INPUTS. <<<");
-      }
-    }
-
-    return choice;
-  }
 }

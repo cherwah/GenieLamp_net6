@@ -21,7 +21,7 @@ class RemoteControl
         "4. IS THE LAMP ON?\n" +
         "\nPLEASE CHOOSE ONE: ";
 
-      int? choice = Program.GetIntegerInput(prompt);
+      int? choice = GetInput(prompt);
 
       if (choice != null)
       {
@@ -35,6 +35,28 @@ class RemoteControl
         }
       }
     }
+  }
+
+  public int? GetInput(string prompt)
+  {
+    int? choice = null;
+
+    Console.Write(prompt);
+    string? input = Console.ReadLine();
+
+    if (input != null)
+    {
+      try
+      {
+        choice = int.Parse(input);
+      }
+      catch (FormatException)
+      {
+        Console.WriteLine(">>> PLEASE PROVIDE NUMBER INPUTS. <<<");
+      }
+    }
+
+    return choice;
   }
 
   protected void TurnOnLamp()
